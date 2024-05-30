@@ -24,11 +24,16 @@ TITLE = "Game Title"
 COLOR = (255, 255, 255)
 
 # Graphics Definitions
-player = GameElement('http://www.bootstrapworld.org/clipart/Monsters/Robot.png', player_starting_pos)
-target = GameElement('https://upload.wikimedia.org/wikipedia/commons/0/0f/Blank_Square.svg', target_starting_pos)
-danger = GameElement('https://upload.wikimedia.org/wikipedia/commons/0/0f/Blank_Square.svg', danger_starting_pos)
-mystery = GameElement('https://upload.wikimedia.org/wikipedia/commons/0/0f/Blank_Square.svg', player.pos)
-background = engine.load_background("http://www.bootstrapworld.org/clipart/Backgrounds/Night%20Forest.jpg")
+player = GameElement("https://drive.usercontent.google.com/download?id=1dBDYHqLPuDsP7kIgnFUKX12gwAHWr2-p", player_starting_pos)
+target = GameElement('https://drive.usercontent.google.com/download?id=1HK5jfTkYizeXblERcAo_2O8YCokX4hjD', target_starting_pos)
+danger = GameElement('https://drive.usercontent.google.com/download?id=1t71we32KMq-syrGqA7AB8Np2S0E1BEOH', danger_starting_pos)
+mystery = GameElement('https://drive.usercontent.google.com/download?id=1MwVJ8plJJmkn3TWNsGQApRCnqxxL2GyI', player.pos)
+background = engine.load_background("https://drive.usercontent.google.com/download?id=106y3sFitp8TiDrdOdOh4dMpRX2Pe2_Iv")
+
+player.scale(1.2)
+player.flip_horizontal()
+danger.scale(1.5)
+danger.flip_horizontal()
 
 ##########################################################################
 # 1. Danger and Target movement section
@@ -88,7 +93,7 @@ def distance(cx, cy, dx, dy):
 
 # is_collision function
 def is_collision(cx, cy, dx, dy):
-    return True
+    return False
 
 ##########################################################################
 # 4. Mystery section
@@ -122,7 +127,7 @@ def update():
     global player_alive
 
     cycle = engine.update_cycle(player, danger, target, mystery, mysteries, is_onscreen, update_player, update_target,
-             update_danger, update_mystery, is_collision, score, HEIGHT, keyboard, mysteries_lag, danger_lag,
+             update_danger, update_mystery, is_collision, score, WIDTH, HEIGHT, keyboard, mysteries_lag, danger_lag,
                      target_lag, player_alive, player_starting_pos, target_starting_pos, danger_starting_pos)
 
     score = cycle[0]
