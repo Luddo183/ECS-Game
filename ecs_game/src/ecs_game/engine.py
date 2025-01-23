@@ -38,6 +38,7 @@ def run_game():
     prepare_mod(mod)
     game = CustomGame(mod)
     game.run()
+    
 def render_game(player_alive, screen, background, player, target, danger, mysteries, title, score, color, width, height):
     font = f.Font(None, 25)
     screen.clear()
@@ -62,6 +63,7 @@ def render_game(player_alive, screen, background, player, target, danger, myster
         text_2_rect = text_2.get_rect(center=(width / 2, height / 2 + 20))
         screen.blit(text_1, text_1_rect)
         screen.blit(text_2, text_2_rect)
+        
 def update_cycle(player, danger, target, mystery, mysteries, is_onscreen, update_player, update_target, update_danger, update_mystery, is_collision, score, height, k, m_lag, d_lag, t_lag, p_alive, p_spos, t_spos, d_spos):
     if p_alive:
         m_lag -= 1
@@ -182,6 +184,7 @@ class GameElement(Actor):
     def flip_vertical(self):
         new_surf = transform.flip(self._surf, False, True)
         self._surf = new_surf
+        
 ##########################################################################
 # Modified Game class to run at 30fps
 ##########################################################################
